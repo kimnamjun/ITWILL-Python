@@ -15,3 +15,9 @@ step02 문제
   단백질의 그램을 입력하세요 : 45
   총칼로리 : 2,485 cal
 '''
+
+fat = int(input('지방의 그램을 입력하세요 : '))
+carbohydrate = int(input('탄수화물의 그램을 입력하세요 : '))
+protein = int(input('단백질의 그램을 입력하세요 : '))
+calories = fat * 9 + carbohydrate * 4 + protein * 4
+print(f"총칼로리 : {format(calories, '3,d')} cal")

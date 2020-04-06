@@ -12,3 +12,7 @@ step02 문제
  화씨온도 : 93
  섭씨온도 = 33.888889
 '''
+
+ftemp = 93
+ctemp = (ftemp - 32.0) * 5 / 9
+print(f'화씨온도 : {ftemp}\n섭씨온도 : {ctemp}')

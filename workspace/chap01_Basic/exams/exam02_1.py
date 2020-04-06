@@ -16,3 +16,12 @@ step02 문제
  높이 입력 : 9
  사다리꼴 넓이 =  85.500
 '''
+
+base = 12
+upper = 7
+height = 9
+area = (base + upper) * height / 2
+print(f"""밑변 입력 : {base}
+윗변 입력 : {upper}
+높이 입력 : {height}
+사다리 꼴 넓이 = {format(area, '.3f')}""")

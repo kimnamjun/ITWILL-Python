@@ -45,5 +45,3 @@ x2 = 150 # 기존 객체 있으면, 주소 반환
 
 print(x, y, y2, x2)
 print(id(x), id(y), id(y2), id(x2))
-
-carNums = 1
