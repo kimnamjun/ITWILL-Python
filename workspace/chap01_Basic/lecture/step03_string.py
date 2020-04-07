@@ -37,7 +37,7 @@ str.member
 '''
 
 # 3) 문자열 처리 함수
-print(line_str, type(line_str)) # 내용, 자료형 출력
+print(line_str, type(line_str))  # 내용, 자료형 출력
 # this is one line string <class 'str'>
 print('문자열 길이 :', len(line_str))
 print('t의 글자수 :', line_str.count('t'))
@@ -45,14 +45,24 @@ print('t의 글자수 :', line_str.count('t'))
 # 접두어 : 시작 문자열
 print(line_str.startswith('this'))  # True
 print(line_str.startswith('that'))  # False
+
+# 분리(split) : 토큰 생성
 words = line_str.split(sep=' ')
 print(words)
 print('단어 길이 :', len(words))
 
 # 문단 -> 문장
-sentence = multi_str.split(sep='\n')
+sentences = multi_str.split(sep='\n')
+print(sentences)
+print('문장 길이 :', len(sentences))
+
+# 결합(join) : '구분자'.join(str)
+sentence = ' '.join(words)
 print(sentence)
-print('문장 길이 :', len(sentence))
+
+para = ','.join(sentences)
+print(para)
+
 print(multi_str.upper())
 
 # 4) indexing / slicing
@@ -61,3 +71,15 @@ print(line_str[0])
 print(line_str[-1])
 print(line_str[0:4])
 print(line_str[0:-6])
+
+
+# 2. escape 문자 처리
+# escape 문자 : 명령어 이외 특수문자(' " , \n \t \b)
+print('\nescape 문자')
+print('\\nescape 문자')
+print(r'\nescape 문자') # r을 붙이면 \을 문자 자체로 보는 것 같음
+
+# c:\python\work\test
+print('c:\python\work\test')  # c:\python\work	est
+print('c:\\python\\work\\test')
+print(r'c:\python\work\test')

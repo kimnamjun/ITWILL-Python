@@ -38,10 +38,10 @@ tot = korScore + matScore + engScore
 print(tot)
 
 # 3. 참조변수 : 메모리 객체(value)를 참조하는 주소 저장 변수
-x = 150 # 객체의 주소
+x = 150  # 객체의 주소
 y = 45.23
-y2 = y # 변수 복제 (주소 복제)
-x2 = 150 # 기존 객체 있으면, 주소 반환
+y2 = y  # 변수 복제 (주소 복제)
+x2 = 150  # 기존 객체 있으면, 주소 반환
 
 print(x, y, y2, x2)
 print(id(x), id(y), id(y2), id(x2))

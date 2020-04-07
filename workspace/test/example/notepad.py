@@ -1,5 +1,11 @@
 class Singleton(object):
+    """
+    This class is Singleton Class.
+    """
     def __new__(cls):
+        """
+        이렇게 하지요
+        """
         if not hasattr(cls, 'instance'):
             cls.instance = super(Singleton, cls).__new__(cls)
             cls.num = 1
@@ -14,6 +20,7 @@ class Singleton(object):
 s1 = Singleton()
 s2 = Singleton()
 
+help(Singleton)
 print(s1)
 print(s2)
 

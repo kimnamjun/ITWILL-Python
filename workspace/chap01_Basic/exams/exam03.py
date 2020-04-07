@@ -15,3 +15,8 @@ step03 문제
  =================
  약자 : KBO
 '''
+word1 = input('첫번쨰 단어 : ')
+word2 = input('두번쨰 단어 : ')
+word3 = input('세번쨰 단어 : ')
+print('=================')
+print('약자 : ', word1[0], word2[0], word3[0], sep='')
