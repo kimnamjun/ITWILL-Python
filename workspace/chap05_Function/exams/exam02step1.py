@@ -11,16 +11,12 @@ from re import findall
 # <Vector data>
 emp = ["2014홍길동220", "2002이순신300", "2010유관순260"]
 
+
 # 함수 정의
 def name_pro(emp):
-    pass
+    return [findall('[가-힣]+', e)[0] for e in emp if findall('[가-힣]+', e)]
 
 
 # 함수 호출 
 names = name_pro(emp)
 print('names =', names)
-
-
-
-
-

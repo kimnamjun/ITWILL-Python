@@ -20,10 +20,15 @@ def bank_account(bal) :
         return balance
         
     def deposit(money) : # 입금하기(setter)
-        pass      
+        nonlocal balance
+        balance += money
         
     def withdraw(money) : # 출금하기(setter)
-        pass
+        nonlocal balance
+        if balance >= money:
+            balance -= money
+        else:
+            print('잔액이 부족합니다.')
         
     return getBalance, deposit, withdraw # 클로저 함수 리턴 
 

@@ -30,7 +30,7 @@ print(variance(dataset))
 print(stdev(dataset))
 
 '''
-분산 = sum( (x 변량 - 평균) **2) / (n-1)
+분산 = sum( (x 변량 - 평균) **2 ) / (n-1)
 표준편차 = sqrt(분산)
 '''
 

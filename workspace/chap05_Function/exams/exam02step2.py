@@ -14,7 +14,8 @@ emp = ["2014홍길동220", "2002이순신300", "2010유관순260"]
 
 # 함수 정의
 def pay_pro(emp):
-    pass    
+    avg = [int(findall('\d+$', e)[0]) for e in emp if findall('\d+$', e)]
+    return int(sum(avg) / len(avg))
 
 
 # 함수 호출 
