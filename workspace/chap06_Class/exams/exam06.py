@@ -13,3 +13,7 @@
   Mul= 50
   Div= 2.0
 '''
+
+from chap06_Class.package_test.module02 import add, sub, mul, div
+x = 10; y = 5
+print(f'Add = {add(x, y)}\nSub = {sub(x, y)}\nMul = {mul(x, y)}\nDiv = {div(x, y)}')

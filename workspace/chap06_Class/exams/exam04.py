@@ -4,24 +4,25 @@
 '''
 
 # 부모클래스 
-class Employee : 
-    name = None
-    pay = 0
-    
+class Employee:
     def __init__(self,name):
         self.name = name
 
 # 자식클래스 - 정규직 
-class Permanent():
-    pass
-   
+class Permanent(Employee):
+    def __init__(self, name, p_pay, bonus):
+        super().__init__(name)
+        self.pay = p_pay + bonus
+
 # 자식클래스 - 임시직 
-class Temporary():
-    pass
+class Temporary(Employee):
+    def __init__(self, name, time, t_pay):
+        super().__init__(name)
+        self.pay = time * t_pay
  
     
 empType = input("고용형태 선택(정규직<P>, 임시적<T>) : ")
-if empType == 'P' or empType == 'p' :
+if empType == 'P' or empType == 'p':
     name = input('이름 : ')
     gi = int(input('기본급 : '))
     bonus = int(input('상여금 : '))
@@ -30,7 +31,7 @@ if empType == 'P' or empType == 'p' :
     print('고용형태 : 정규직')
     print('이름 : ', p.name)
     print('급여 : ', format(p.pay, '3,d'))    
-elif empType == 'T' or empType == 't' :
+elif empType == 'T' or empType == 't':
     name = input('이름 : ')
     time = int(input('작업시간 : '))
     tpay = int(input('시급 : '))
