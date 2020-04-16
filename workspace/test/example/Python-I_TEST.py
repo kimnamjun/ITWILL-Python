@@ -106,7 +106,6 @@ def students():
     # 점수 출력
     def score_display(student):
         for idx, val in enumerate(student):
-            # print(f"{i+1}. {i[0]} {i[1]} {i[2]} {sum(i)} {format(sum(i) / 3, '4.2f')}")
             print(f" {format(idx + 1, '3d')}.    {format(val[0], '3d')}     {format(val[1], '3d')}     "\
                   f"{format(val[2], '3d')}      {format(tot_age_calc(val)[0], '3d')}    "\
                   f"{format(tot_age_calc(val)[1], '4.2f')}")
@@ -144,4 +143,3 @@ class Student :
         print('-' * 50)
 
 Student(student).score_display()
-
