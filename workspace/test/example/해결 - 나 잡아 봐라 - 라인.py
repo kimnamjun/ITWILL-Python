@@ -26,30 +26,48 @@
 브라운은 코니를 5초 만에 잡을 수 있다.
 """
 
+# 나름 맞다고 생각함
+# 세 가지 케이스 (11, 2):5, (11, 1):6, (6, 3):4에 대해서 정답
+# 비슷한 문제인 백준 1697에 대하여 일부 수정 후 정답
+
+# odd & even
+# time이 홀수와 짝수인 경우를 나눠서 생각하자.
+# 브라운이 t = x일 때, 갈 수 있는 곳은 t= x+1일 때 갈 수 있다고 할 수 없지만,
+# t = x+2일 때, 현재 위치에서 +1, -1 하는 것으로 갈 수 있다고 보장된다.
+
+# old & new
+# 할 때마다 돌리면 20만 * 최대 정답값 정도 시간이 나오므로
+# 모든 경우에 대해서 하지말고 새로 추가 된 값에 대해서만 실행
+
 cony, brown = map(int, input().split())
 time = 0
 
 odd = set()
 even = {brown}
+odd_new = set()
+even_new = {brown}
 
-# 잡으면 break
 while cony <= 200000:
-    now, nxt = ('odd', 'even') if time % 2 else ('even', 'odd')
+    now, nxt, old, new \
+        = (odd, even, odd_new, even_new) if time % 2 else (even, odd, even_new, odd_new)
 
-    if cony in eval(now):
+    if cony in now:
         break
 
-    for i in eval(now):
-        if i < 200000:
-            eval(nxt).add(i + 1)
-        if i > 0:
-            eval(nxt).add(i - 1)
-        if i <= 100000:
-            eval(nxt).add(i * 2)
+    for i in old:
+        if i + 1 not in nxt and i < 200000:
+            nxt.add(i + 1)
+            new.add(i + 1)
+        if i - 1 not in nxt and i > 0:
+            nxt.add(i - 1)
+            new.add(i - 1)
+        if i * 2 not in nxt and i <= 100000:
+            nxt.add(i * 2)
+            new.add(i * 2)
+    old.clear()
 
     time += 1
     cony += time
-
 
 ans = time if cony <= 200000 else -1
 print(ans)

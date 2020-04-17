@@ -85,7 +85,7 @@ print(lab_cnt)
 '''
 pip install xlrd
 '''
-excel = pd.ExcelFile('../data/sam_kospi.xlsx')
+excel = pd.ExcelFile('../data/sam_kospi.xlsx')  # xlrd 필요
 print(excel)  # object info
 kospi = excel.parse('sam_kospi')  # sheet
 print(kospi)

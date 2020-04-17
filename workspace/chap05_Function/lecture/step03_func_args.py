@@ -13,14 +13,13 @@ def func1(name, *names):
 
 func1('Hello', 'My Name', 'is', 'Kim NamJun')
 
-import scatter.scatter_module  # 방법1)
-from scatter.scatter_module import avg, var_std  # 방법2)
+from chap05_Function.scatter.scatter_module import avg, var_std  # 방법2)
 
 data = [2, 3, 5, 6, 7, 8.5]
 
-avg1 = scatter.scatter_module.avg(data)
+# avg1 = chap05_Function.scatter.scatter_module.avg(data)  // scatter 위치 이동
 avg2 = avg(data)
-print(avg1)
+# print(avg1)
 print(avg2)
 
 
