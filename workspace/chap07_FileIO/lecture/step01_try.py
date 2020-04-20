@@ -17,10 +17,10 @@ try:
         y = i ** 2
         print(f'y = {y}')
     print('프로그램 종료')
-except:
+except Exception:
     try:
         print(f'예외발생(숫자 아님) : {i}')
-    except:
+    except Exception:
         print('except의 except였던거임')
 
 # 2. 유형별 예외 처리
