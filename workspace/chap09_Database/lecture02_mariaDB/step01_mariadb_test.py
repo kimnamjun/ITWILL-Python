@@ -33,3 +33,6 @@ finally:
     print('프로그램 종료')
     cursor.close()
     conn.close()
+
+# CREATE OR REPLACE TABLE [테이블명](...)
+# 위의 내용으로 없으면 만들고 있으면 교체 가능

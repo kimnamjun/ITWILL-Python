@@ -35,13 +35,42 @@ try:
         menu = int(input('\t메뉴번호 입력 : '))
         
         if menu == 1 :
-            pass # 1. 레코드 조회
+            cursor.execute("SELECT * FROM goods")
+            dataset = cursor.fetchall()
+            for row in dataset:
+                print(row)
+
         elif menu == 2:
-            pass # 2. 레코드 추가
+            code = int(input("code : "))
+            name = input("name : ")
+            num = int(input("num : "))
+            price = int(input("price : "))
+            cursor.execute(f"INSERT INTO goods VALUES({code}, '{name}', {num}, {price})")
+            conn.commit()
+
         elif menu == 3:
-            pass # 3. 레코드 수정
+            code = int(input('수정 code : '))
+            num = int(input('수정 num : '))
+            price = int(input('수정 price : '))
+            cursor.execute(f"SELECT * FROM goods WHERE code = {code}")
+            row = cursor.fetchone()
+
+            if row:
+                cursor.execute(f"UPDATE goods SET num = {num}, price = {price} WHERE code = {code}")
+                conn.commit()
+            else:
+                print('해당 코드 없음')
+
         elif menu == 4:
-            pass # 4. 레코드 삭제
+            code = int(input('삭제 code : '))
+            cursor.execute(f"SELECT * FROM goods WHERE code = {code}")
+            row = cursor.fetchone()
+
+            if row:
+                cursor.execute(f"DELETE FROM goods WHERE code = {code}")
+                conn.commit()
+            else:
+                print('해당 코드 없음')
         elif menu == 5 :
             print('프로그램 종료')
             break # 반복 exit
