@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주소 검색 결과</title>
+</head>
+<body>
+<div align="center">
+    <table border="1" width="700">
+        <tr>
+            <th>검색 사원 이름</th>
+            <th>{{ employee }}</th>
+        </tr>
+        <tr>
+            <th>전체 검색 주소</th>
+            <td>
+                <ul>
+                    {% if data: %}
+                        {% for row in data %}
+                        <li>{{ row }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>검색 주소 없음</li>
+                    {% endif %}
+                </ul>
+                <br/>
+                <p>전체 레코드 수 : {{ size }}</p>
+            </td>
+        </tr>
+    </table>
+    <a href="/">[index.html]</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam01</title>
+</head>
+<body>
+<div align="center">
+    <table border="1" width="700">
+        <tr>
+            <th>검색 사원 이름</th>
+            <th>{{ dong }}</th>
+        </tr>
+        <tr>
+            <th>전체 검색 사원</th>
+            <td>
+                <ul>
+                    {% if data: %}
+                        {% for row in data %}
+                        <li>{{ row }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>해당 사원 없음</li>
+                    {% endif %}
+                </ul>
+                <br/>
+            </td>
+        </tr>
+    </table>
+    <a href="/">[index.html]</a>
+</div>
+</body>
+</html>
