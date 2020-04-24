@@ -1,25 +1,29 @@
-# uk
+import hashlib
+import pymysql
+import uuid
+import re
 
-from decimal import *
-''''''
-n , m = map(int,input().split())
+config = {
+    'host': '127.0.0.1',
+    'user': 'scott',
+    'password': 'tiger',
+    'database': 'work',
+    'port': 3306,
+    'charset': 'utf8',
+    'use_unicode': True
+}
 
-arr = list(map(int,input().split()))
+conn = pymysql.connect(**config)
+cursor = conn.cursor()
+sha256 = hashlib.sha256()
 
-answer = Decimal('inf')
-
-# 시작점 변경
-for i in range(n-m+1):
-    sum1 = sum([v for v in arr[i:i+m-1]])
-    var = sum(v**2 for v in arr[i:i+m-1])
-
-    for j in range(i+m,n+1):
-        sum1+= arr[j-1]
-        var += arr[j-1]**2
-        avg= sum1 / (j-i)
-
-        std = (var/(j-i) - avg**2)**(1/2)
-
-        answer = min(answer , std)
-
-print(answer)
+id = 'user5'
+pwd = 'password'
+salt = re.sub('-', '', str(uuid.uuid4()))
+print(len(salt))
+pwd_salt = pwd + salt
+print('pwd_salt :', pwd_salt)
+sha256.update(pwd_salt.encode())
+pwd_salt = sha256.hexdigest()
+cursor.execute(f"""INSERT INTO user(id, password, salt) VALUE('{id}', '{pwd_salt}', '{salt}')""")
+conn.commit()

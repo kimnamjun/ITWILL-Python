@@ -61,7 +61,7 @@ def docPro():
                     print(row)
             return render_template("/app05/docPro.html", dataset= data, size=size)
 
-    return render_template("/app05/error.html", info="ID 또는 진료 과목 확인")
+    return render_template("/app05/message.html", info="ID 또는 진료 과목 확인")
 
 
 @app.route('/nurseForm')
@@ -89,7 +89,7 @@ def nursePro():
                     print(row)
         return render_template("/app05/nursePro.html", dataset= data, size=size)
 
-    return render_template("/app05/error.html", info="ID 확인")
+    return render_template("/app05/message.html", info="ID 확인")
 
 
 if __name__ == "__main__":

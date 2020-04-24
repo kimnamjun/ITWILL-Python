@@ -1,0 +1,54 @@
+div {
+    border: solid red 1px;
+}
+.work_box {
+    background: #CEECF5;
+    margin: 15px 0px 15px 0px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 800px;
+}
+.chat_box {
+    background: #E0F2F7;
+    margin: 15px 0px 15px 0px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+    height: 125px;
+}
+.float_left_btn {
+    float: left;
+    margin: 15px 0px 0px 15px;
+}
+.float_right_btn {
+    float: right;
+    margin: 15px 15px 0px 0px;
+}
+#man {
+    float: left;
+    margin: 10px;
+    border-radius: 40px;
+    border: solid black 2px;
+}
+hr {
+    background-color: black;
+    height: 1px;
+}
+textarea {
+    resize: none;
+}
+.title {
+    background-color: yellow;
+}
+
+.btn_create_room {
+    float: right;
+    margin: 15px 15px 0px 0px;
+}
+#user_name {
+    color: red;
+    background: yellow;
+}
+#room_name {
+    text-align: center;
+}

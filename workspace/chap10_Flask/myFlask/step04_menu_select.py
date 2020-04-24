@@ -85,7 +85,7 @@ def insert():
         conn.close()
 
     except Exception as e:
-        return render_template("/app04/error.html", error_info=e)
+        return render_template("/app04/message.html", error_info=e)
 
     data = select_func()
     return render_template('/app04/select.html', data=data)
@@ -109,7 +109,7 @@ def update():
         conn.close()
 
     except Exception as e:
-        return render_template("/app04/error.html", error_info=e)
+        return render_template("/app04/message.html", error_info=e)
 
     data = select_func()
     return render_template('/app04/select.html', data=data)
@@ -131,7 +131,7 @@ def delete():
         conn.close()
 
     except Exception as e:
-        return render_template("/app04/error.html", error_info=e)
+        return render_template("/app04/message.html", error_info=e)
 
     data = select_func()
     return render_template('/app04/select.html', data=data)

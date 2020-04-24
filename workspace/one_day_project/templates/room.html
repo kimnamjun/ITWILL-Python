@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>One Day Chat</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <body>
-
+<div class="float_btn">
+    <input type="button" onclick="location.href = '/'" value="방 나가기"/>
+</div>
+<div class="work_box">
+    <div class="title">
+        <h1>{{ name }}</h1>
+    </div>
+    {% for c in chat%}
+    <form method="post" action='/room'>
+        <div class="chat_box">
+            <p>{{ c[1] }} : {{ c[4] }}</p>
+        </div>
+    </form>
+    {% endfor %}
+    <div class="chat_box">
+        <form method="post" action="/send">
+            <textarea cols="50" rows="10" name="text"></textarea><br/>
+            <input id="send_chat" type="submit" value="전송하기"/>
+        </form>
+    </div>
+</div>
 </body>
 </html>
