@@ -1,6 +1,23 @@
 div {
     border: solid red 1px;
 }
+h1{
+    text-align: center;
+}
+h5{
+    margin: 0px 20px 0px 20px;
+}
+p{
+    margin: 0px 20px 0px 20px;
+}
+hr {
+    background-color: black;
+    height: 1px;
+}
+textarea {
+    resize: none;
+}
+
 .work_box {
     background: #CEECF5;
     margin: 15px 0px 15px 0px;
@@ -24,31 +41,25 @@ div {
     float: right;
     margin: 15px 15px 0px 0px;
 }
-#man {
-    float: left;
-    margin: 10px;
-    border-radius: 40px;
-    border: solid black 2px;
-}
-hr {
-    background-color: black;
-    height: 1px;
-}
-textarea {
-    resize: none;
-}
 .title {
     background-color: yellow;
+    align: center;
 }
 
 .btn_create_room {
     float: right;
     margin: 15px 15px 0px 0px;
 }
+#man {
+    float: left;
+    margin: 10px;
+    border-radius: 40px;
+    border: solid black 2px;
+}
 #user_name {
     color: red;
     background: yellow;
 }
 #room_name {
-    text-align: center;
+    align: center;
 }

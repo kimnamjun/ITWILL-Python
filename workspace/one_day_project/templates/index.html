@@ -6,29 +6,63 @@
     <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <body>
-<div class="float_left_btn">
-    <h4 id="user_name">유저 아이디</h4>
-</div>
+{% if sess %}
+    <div class="float_left_btn">
+        <h4 id="user_name">{{ sess }}</h4>
+        {% if invite %}
+        <h5>초대받은 방 목록</h5>
+        {% for row in invite %}
+            <form method="post" action='/'>
+                <input type="hidden" name="cmd" value="invite"/>
+                <input type="hidden" name="no" value="{{ row['no'] }}"/>
+                <input type="hidden" name="ivt_from" value="{{ row['from'] }}"/>
+                <p>{{ row['no'] }} : {{ row['ivt_from'] }}</p>
+                <input type="submit" value="입장하기"/>
+            </form><br/>
+        {% endfor %}
+    {% endif %}
+    </div><br/>
+{% endif %}
 <div class="float_right_btn">
-    <form method="post" action='/create'>
-        <!--<input id="create_room" type="image" src="../static/add.png" value="submit" width="40px" height="40px"/>-->
-        <input type="submit" value="방 만들기"/>
-    </form><br/>
-    <form method="post" action='/signup'>
-        <input type="submit" value="회원 가입"/>
-    </form>
+    {% if sess %}
+        <form method="post" action='/create'>
+            <!--<input id="create_room" type="image" src="../static/add.png" value="submit" width="40px" height="40px"/>-->
+            <input type="submit" value="방 만들기"/>
+        </form><br/>
+        <form method="post" action='/'>
+            <input type="hidden" name="cmd" value="logout"/>
+            <input type="submit" value="로그아웃"/>
+        </form><br/>
+    {% else %}
+        <form method="post" action='/signup'>
+            <input type="submit" value="회원 가입"/>
+        </form><br/>
+        <form method="post" action='/login'>
+            <input type="submit" value="로그인"/>
+        </form><br/>
+    {% endif %}
 </div>
 <div class="work_box">
-    {% for r in room%}
-    <form method="post" action='/room'>
-        <div class="chat_box">
-            <img id="man" src="../static/man.png" width="100px" height="100px"/>
-            <input id="room_name" type="submit" name="no" value="{{ r[0] }}"/>         {{ r[1] }}
-            <hr/>
-            <h4 id="last_chat"><!--{{ last_chat }}-->마지막 채팅 내용</h4>
-        </div>
-    </form>
-    {% endfor %}
+    {% if sess %}
+        {% if room %}
+            {% for r in room%}
+                <form method="post" action='/room'>
+                    <input type="hidden" name="cmd" value="join"/>
+                    <input type="hidden" name="no" value="{{ r['no'] }}"/>
+                    <div class="chat_box">
+                        <img id="man" src="../static/man.png" width="100px" height="100px"/>
+                        <input id="room_name" type="submit" value="{{ r['no'] }}. {{ r['room_name'] }}"/>
+                        <hr/>
+                        <h4 id="last_chat"><!--{{ last_chat }}-->마지막 채팅 내용</h4>
+                    </div>
+                </form>
+            {% endfor %}
+        {% else %}
+            <h5>채팅방을 만들어보세요.</h5>
+        {% endif %}
+    {% else %}
+        <h5>로그인이 필요한 서비스 입니다.</h5>
+    {% endif %}
 </div>
 </body>
 </html>

@@ -6,26 +6,49 @@
     <link rel="stylesheet" type="text/css" href="../static/style.css">
 </head>
 <body>
-<div class="float_btn">
-    <input type="button" onclick="location.href = '/'" value="방 나가기"/>
+<div class="float_left_btn">
+    <form method="post" action="/">
+        <input type="hidden" name="cmd" value="exit">
+        <input type="hidden" name="no" value="{{ no }}">
+        <input type="submit" value="방 나가기"/>
+    </form>
+</div>
+<div class="float_right_btn">
+    <input type="button" onclick="location.href = '/'" value="메인 페이지로"/><br/><br/>
+    <form method="post" action="/room">
+        <input type="hidden" name="cmd" value="invite"/>
+        <input type="hidden" name="no" value="{{ no }}"/>
+        <input type="hidden" name="ivt_from" value="{{ id }}"/>
+        <input type="text" name="ivt_to"/><br/>
+        <input type="submit" value="초대하기"/>
+    </form>
 </div>
 <div class="work_box">
     <div class="title">
         <h1>{{ name }}</h1>
     </div>
     {% for c in chat%}
-    <form method="post" action='/room'>
-        <div class="chat_box">
-            <p>{{ c[1] }} : {{ c[4] }}</p>
-        </div>
-    </form>
+        {% if id == c['id'] %}
+            <div class="chat_box" style="text-align: right;">
+                <h5>{{ c['id'] }}</h5>
+                <p>{{ c['text'] }}</p>
+            </div>
+        {% else %}
+            <div class="chat_box" style="text-align: left;">
+                <h5>{{ c['id'] }}</h5>
+                <p>{{ c['text'] }}</p>
+            </div>
+        {% endif %}
     {% endfor %}
-    <div class="chat_box">
-        <form method="post" action="/send">
-            <textarea cols="50" rows="10" name="text"></textarea><br/>
-            <input id="send_chat" type="submit" value="전송하기"/>
-        </form>
-    </div>
+
+    <form method="post" action="/room">
+        <input type="hidden" name="cmd" value="send"/>
+        <input type="hidden" name="no" value="{{ no }}"/>
+        <textarea id="text_box" cols="50" rows="10" name="text"></textarea><br/>
+        <input id="send_chat" type="submit" value="전송하기"/>
+    </form>
 </div>
+
+<script type="text/javascript" src="../static/script.js"></script>
 </body>
 </html>

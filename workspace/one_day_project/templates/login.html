@@ -7,12 +7,15 @@
 </head>
 <body>
 <div class="work_box">
-    <form method="post" action="/">
-        <input type="hidden" name="cmd" value="signup"/>
+    <form method="post" action='/'>
+        <input type="hidden" name="cmd" value="login"/>
         아이디 : <input type="text" name="id"><br/><br/>
         비밀번호 : <input type="password" name="pwd"><br/><br/>
-        비밀번호 확인 : <input type="password" name="pwdc"><br/><br/>
-        <input type="submit" value="아이디 생성하기">
+        <input type="submit" value="로그인"/>
+    </form><br/>
+    <form method="post" action="/signup">
+        <input type="hidden" name="cmd" value="signup"/>
+        <input type="submit" value="회원가입">
     </form>
 </div>
 </body>
